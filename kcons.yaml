@@ -1,0 +1,5 @@
+- from:
+    uri: "kafka:my-topic?brokers=my-cluster-kafka-bootstrap:9092&groupId=cg1"
+    steps:
+      - to:
+          uri: "log:original"
