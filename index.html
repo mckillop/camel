@@ -82,14 +82,16 @@
         function startSession() {
             const userNameValue = userName.val().trim();
             if (userNameValue.length) {
-                connectDialog.addClass('d-none');
-                chatDialog.removeClass('d-none');
                 socket = new WebSocket("ws://172.31.2.128:8080/feed");
                 socket.addEventListener("message", (event) => {
                     chat.val(chat.val() + event.data + "\n");
                     scrollChat();
                 });
 
+                socket.addEventListener("open", (event) => {
+                    connectDialog.addClass('d-none');
+                    chatDialog.removeClass('d-none');
+                });
             }
             
         function scrollChat() {
