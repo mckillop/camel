@@ -1,4 +1,4 @@
-# camel-k: language=yaml
+# camel-k: dependency=mysql:mysql-connector-java
 - route:
     from:
       uri: "kamelet:mysql-source"
