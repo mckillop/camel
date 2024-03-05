@@ -1,7 +1,12 @@
-<route>
-    <from uri="direct:cheese"/>
-    <setBody>
-        <simple>Hello ${body}</simple>
-    </setBody>
-    <to uri="log:hello"/>
-</route>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- camel-k: language=xml -->
+<camel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://camel.apache.org/schema/spring"
+        xsi:schemaLocation="
+            http://camel.apache.org/schema/spring
+            https://camel.apache.org/schema/spring/camel-spring.xsd">
+    <route>
+        <from uri="timer://runOnce?repeatCount=1"/>
+        <log message="dude"/>
+    </route>
+</camel>
