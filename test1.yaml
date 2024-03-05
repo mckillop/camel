@@ -1,7 +1,0 @@
-- from:
-    uri: "direct:start"
-    steps:
-      - setBody:
-          simple: "yo!"
-      - to:
-          uri: "log:test1"
