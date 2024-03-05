@@ -5,7 +5,7 @@
       parameters:
         repeatCount: "1"
       steps:
-        - setBody:
+        - to:
             uri: "kamelet:mysql-source"
             parameters:
               serverName: "192.168.49.2"
