@@ -7,10 +7,10 @@ public class test4 extends RouteBuilder {
     @Override
     public void configure() throws Exception {
 
-        spring.datasource.driver-class-name = "mysql";
-        spring.datasource.url = "192.168.49.2:30036/db1";
-        spring.datasource.username = "root";
-        spring.datasource.password = "Password1";
+        SimpleRegistry registry = new SimpleRegistry();
+        DateSource ds = setupDataSource("jdbc:mysql://root:Password1@192.168.49.2:30036/db1");
+        registry.put("myDataSource", ds);
+        CamelContext camel = new DefaultCamelContext(registry);
         
         from("timer:java?period={{time:1000}}")
             .setBody()
