@@ -1,7 +1,6 @@
 # camel-k: language=yaml
 - route:
     from:
-- from:
       uri: "kamelet:mysql-source"
       parameters:
         serverName: "192.168.49.2"
