@@ -2,6 +2,6 @@
     uri: "direct:start"
     steps:
       - setBody:
-          simple: "you"
+          simple: "yo!"
       - to:
           uri: "log:test1"
