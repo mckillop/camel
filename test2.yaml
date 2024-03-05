@@ -1,12 +1,15 @@
 # camel-k: language=yaml
+- route:
+    from:
 - from:
-    uri: "kamelet:mysql-source"
-    parameters:
-      serverName: "192.168.49.2"
-      username: "root"
-      password: "Password1"
-      query: 'SELECT * FROM candidates'
-      serverPort: 30036
-      databaseName: db1
-    steps:
-      - log: "${body}"
+      uri: "kamelet:mysql-source"
+      parameters:
+        serverName: "192.168.49.2"
+        username: "root"
+        password: "Password1"
+        query: 'SELECT * FROM candidates'
+        serverPort: 30036
+        databaseName: db1
+      steps:
+        - to:
+            uri: "kamelet:log-sink"
