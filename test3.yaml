@@ -1,0 +1,18 @@
+# camel-k: dependency=mysql:mysql-connector-java
+- route:
+    from:
+      uri: "timer:runOnce"
+      parameters:
+        repeatCount: "1"
+      steps:
+        - setBody:
+            uri: "kamelet:mysql-source"
+            parameters:
+              serverName: "192.168.49.2"
+              username: "root"
+              password: "Password1"
+              query: 'SELECT * FROM candidate'
+              serverPort: 30036
+              databaseName: db1        
+        - to:
+            uri: "kamelet:log-sink"
