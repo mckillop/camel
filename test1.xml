@@ -1,0 +1,7 @@
+<route>
+    <from uri="direct:cheese"/>
+    <setBody>
+        <simple>Hello ${body}</simple>
+    </setBody>
+    <to uri="log:hello"/>
+</route>
