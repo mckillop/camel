@@ -1,0 +1,7 @@
+# camel-k: language=yaml
+- from:
+    uri: "timer:runOnce"
+    parameters:
+      repeatCount: "1"
+    steps:
+      - log: "bla"
