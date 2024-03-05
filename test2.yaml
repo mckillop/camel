@@ -1,16 +1,12 @@
 # camel-k: language=yaml
-    from:
-      uri: "kamelet:mysql-source"
-      parameters:
-        serverName: "192.168.49.2"
-        username: "root"
-        password: "Password1"
-        query: 'SELECT * FROM candidates'
-        port: 30036
-        databaseName: db1
 - from:
-    uri: "timer:runOnce"
+    uri: "kamelet:mysql-source"
     parameters:
-      repeatCount: "1"
+      serverName: "192.168.49.2"
+      username: "root"
+      password: "Password1"
+      query: 'SELECT * FROM candidates'
+      port: 30036
+      databaseName: db1
     steps:
       - log: "${body}"
